@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "MovieMart",
-    "slug": "MovieMart",
+    "name": "Movie Mart",
+    "slug": "moviemart",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "moviemart",
+    "icon": "./assets/images/logos.png",
+    "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -13,30 +13,36 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/logos.png",
+        "backgroundColor": "#1a1a1a"
       },
-      "edgeToEdgeEnabled": true
+      "package": "com.nafiziqbal.moviemart"
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/logos.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/logos.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#1a1a1a"
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "f5998c83-c75b-48ca-8dc4-d11d97189c68"
+      }
     }
   }
 }
