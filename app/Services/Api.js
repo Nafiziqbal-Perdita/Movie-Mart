@@ -21,8 +21,8 @@ export const TMDB_CONFIG = {
 // https://api.themoviedb.org/3/tv/popular?language=en-US&page=1
 export const fetchMovies = async ({ query, page = 1 }) => {
   const endPoint = query
-    ? `${TMDB_CONFIG.BASE_URL}/search/movie?query=${encodeURIComponent(query)}&page=${page}`
-    : `${TMDB_CONFIG.BASE_URL}/discover/movie?include_adult=true&include_video=false&sort_by=popularity.desc&page=${page}`;
+    ? `${TMDB_CONFIG.BASE_URL}/search/movie?query=${encodeURIComponent(query)}&include_adult=false&page=${page}`
+    : `${TMDB_CONFIG.BASE_URL}/discover/movie?include_adult=false&include_video=false&sort_by=popularity.desc&page=${page}`;
 
   try {
     const response = await fetch(endPoint, {

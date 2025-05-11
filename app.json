@@ -39,6 +39,15 @@
       "typedRoutes": true
     },
     "extra": {
+      "APIKEY": "AIzaSyDK5AmaTMfCfYJ-A7DfGPrug_IWXiav7pg",
+      "AUTHDOMAIN": "moviemart-b4a15.firebaseapp.com",
+      "PROJECTID": "moviemart-b4a15",
+      "STORAGEBUCKET": "moviemart-b4a15.firebasestorage.app",
+      "MESSAGINGSENDERID": "254603058964",
+      "APPID": "1:254603058964:web:31fa76169c7a4abf856c01",
+      "MEASUREMENTID": "G-WB98G9ZCFL",
+      "DATABASEURL": "https://moviemart-b4a15-default-rtdb.firebaseio.com",
+
       "router": {},
       "eas": {
         "projectId": "f5998c83-c75b-48ca-8dc4-d11d97189c68"

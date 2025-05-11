@@ -20,7 +20,11 @@ const MovieDetails = () => {
           fetchMovieVideo({ movie_id: id })
         ]);
         setMovie(response);
-        setVideo(videoResponse?.results?.[0]);
+        // Find the first trailer video
+        const trailer = videoResponse?.results?.find(
+          video => video.type === "Trailer" && video.site === "YouTube"
+        );
+        setVideo(trailer);
       } catch (err) {
         console.error("Error fetching movie details:", err);
         setError(err.message || "Failed to fetch movie details");
@@ -33,13 +37,17 @@ const MovieDetails = () => {
   }, [id]);
 
   const handleTrailerPress = async () => {
-    if (video?.results?.[0]?.key) {
-      const url = `https://www.youtube.com/watch?v=${video.results[0].key}`;
-      const supported = await Linking.canOpenURL(url);
-      if (supported) {
-        await Linking.openURL(url);
-      } else {
-        // console.log("Cannot open URL: " + url);
+    if (video?.key) {
+      const url = `https://www.youtube.com/watch?v=${video.key}`;
+      try {
+        const supported = await Linking.canOpenURL(url);
+        if (supported) {
+          await Linking.openURL(url);
+        } else {
+          console.log("Cannot open URL: " + url);
+        }
+      } catch (error) {
+        console.error("Error opening URL:", error);
       }
     }
   };
@@ -135,7 +143,7 @@ const MovieDetails = () => {
           <View className="mt-6">
             <View className="flex-row justify-between items-center mb-2">
               <Text className="text-white text-xl font-bold">Overview</Text>
-              {video && (
+              {video?.key && (
                 <TouchableOpacity
                   onPress={handleTrailerPress}
                   className="bg-red-600 px-4 py-2 rounded-full flex-row items-center"
